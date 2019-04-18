@@ -26,3 +26,6 @@ printf(“Its true!”);
 5. Only one default parameter is supported, no more
 
 6. This is a symbolic translator, so has bugs and limitations
+
+![Screenshot](http://mshams.ir/wp-content/uploads/2010/06/Cpp2c_shot1.jpg)
+![Screenshot](http://mshams.ir/wp-content/uploads/2010/06/Cpp2c_shot2.jpg)
