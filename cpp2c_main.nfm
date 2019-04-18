@@ -1,0 +1,454 @@
+object Main: TMain
+  Left = 274
+  Top = 50
+  Caption = 'Cpp2C  By: Mohammad Shams Javi'
+  ClientHeight = 561
+  ClientWidth = 719
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Position = poDesigned
+  Constraints.MinHeight = 300
+  Constraints.MinWidth = 400
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Splitter2: TSplitter
+    Align = alTop
+    Beveled = True
+    Cursor = crVSplit
+    ResizeStyle = rsUpdate
+    Width = 719
+    Left = 0
+    Top = 321
+    Height = 5
+    ExplicitTop = 369
+    ExplicitWidth = 630
+  end
+  object gridPre: TStringGrid
+    ColCount = 2
+    FixedCols = 0
+    RowCount = 1
+    FixedRows = 0
+    ScrollBars = ssVertical
+    TabOrder = 1
+    Left = 86
+    Top = 81
+    Width = 147
+    Height = 189
+    Tag = ''
+    Visible = False
+    ColWidths = (
+      64
+      64)
+  end
+  object prg: TProgressBar
+    Align = alBottom
+    TabOrder = 0
+    Left = 0
+    Top = 548
+    Width = 719
+    Height = 13
+    Step = 1
+  end
+  object Panel1: TPanel
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 2
+    Left = 0
+    Top = 0
+    Width = 719
+    Height = 321
+    object Splitter3: TSplitter
+      Beveled = True
+      ResizeStyle = rsUpdate
+      Width = 5
+      Left = 321
+      Top = 0
+      Height = 321
+      ExplicitLeft = 177
+    end
+    object grp2: TGroupBox
+      Align = alLeft
+      Caption = 'C++ Sources'
+      TabOrder = 0
+      Left = 0
+      Top = 0
+      Width = 321
+      Height = 321
+      DesignSize = (
+        321
+        321)
+      object txtSrc: TMemo
+        Align = alClient
+        Font.Charset = ARABIC_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Courier New'
+        Font.Style = []
+        Lines.Strings = (
+          '#include <iostream.h>'
+          '#include <graph.h>'
+          ''
+          'class stack{'
+          'private:'
+          #9'int *v;'
+          #9'int top;'
+          #9'int size;'
+          'public:'
+          #9'stack(int n=200)'
+          #9#9'{'
+          #9#9'v=new int[n];'
+          #9#9'top=-1;'
+          #9#9'size=n;'
+          #9#9'}'
+          #9'int isEmpty()'
+          #9#9'{return(top==-1)?1:0;'
+          #9#9'}'
+          #9'int isFull()'
+          #9#9'{return(top==size)?1:0;'
+          #9#9'}'
+          #9'void Push(int n);'
+          #9'void Pop();'
+          #9'int Top();'
+          #9'};'
+          ''
+          ''
+          'class queue{'
+          'private:'
+          #9'int *v;'
+          #9'int front;'
+          #9'int rear;'
+          #9'int size;'
+          #9'int c;'
+          'public:'
+          #9'queue(int n=150)'
+          #9#9'{'
+          #9#9'v=new int[n];'
+          #9#9'size=n;'
+          #9#9'c=0;'
+          #9#9'rear=0;'
+          #9#9'front=0;'
+          #9#9'}'
+          #9'int isEmpty()'
+          #9#9'{return !c;'
+          #9#9'}'
+          #9'int isFull()'
+          #9#9'{return(c==size)?1:0;'
+          #9#9'}'
+          #9'void Put(int a);'
+          #9'int Get();'
+          #9'};'
+          ''
+          ''
+          'void stack::Push(int n)'
+          #9'{'
+          #9'if (!isFull() && n>0) '
+          #9#9'v[++top]=n;'
+          #9'}'
+          ''
+          'void stack::Pop()'
+          #9'{'
+          #9'if(!isEmpty()) '
+          #9#9'--top;'
+          #9'}'
+          ''
+          'int stack::Top()'
+          #9'{'
+          #9'if (!isEmpty())'
+          #9#9'return v[top]'
+          #9'else'
+          #9#9'return -666;'
+          #9'}'
+          ''
+          'void queue::Put(int a)'
+          #9'{'
+          #9'if(!isFull() && a>0)'
+          #9#9'{'
+          #9#9'v[rear++]=a;'
+          #9#9'c++;'
+          #9#9'rear=(rear>n)?0:rear;'
+          #9#9'}'
+          #9'}'
+          ''
+          'int queue::Get()'
+          #9'{'
+          #9'if (!isEmpty())'
+          #9#9'{'
+          #9#9'c--;'
+          #9#9'int temp;'
+          #9#9'temp=v[front++];'
+          #9#9'if (front>n) '
+          #9#9#9'front=0;'
+          #9#9'return temp;'
+          #9#9'}'
+          #9'else'
+          #9#9'return -666;'
+          #9'}'
+          ''
+          ''
+          'void main()'
+          #9'{'
+          #9'stack s;'
+          #9'int num1=-1;'
+          #9'int num2=0;'#9
+          ''
+          #9'printf("Enter stack size:");'
+          #9'scanf("%d",num2);'
+          #9'stack t(num2);'
+          ''
+          #9's.Push(5);'
+          #9's.Push(6);'
+          #9's.Get();'
+          ''
+          #9'num2=s.top();'
+          ''
+          #9'if (num2==6)'
+          #9#9'printf("Its true!");'
+          ''
+          #9't.Push(10);'
+          #9't.Pop();'
+          ''
+          #9'queue q(10);'
+          ''
+          #9'printf("Enter int number:");'
+          #9'scanf("%d",num1);'
+          #9'q.Put(num1);'
+          ''
+          #9'q.Put(12);'
+          #9'num1=q.get();'
+          #9'}')
+        ParentFont = False
+        ScrollBars = ssBoth
+        TabOrder = 0
+        WantTabs = True
+        Left = 2
+        Top = 15
+        Width = 317
+        Height = 304
+      end
+      object btnLoad: TButton
+        Left = 224
+        Top = 21
+        Width = 73
+        Height = 23
+        Caption = 'Load'
+        TabOrder = 1
+        Anchors = [akLeft, akTop, akRight]
+        AlignWithMargins = True
+        OnClick = btnLoadClick
+      end
+      object btnsave: TButton
+        Left = 224
+        Top = 44
+        Width = 73
+        Height = 23
+        Caption = 'Save'
+        TabOrder = 2
+        Anchors = [akLeft, akTop, akRight]
+        AlignWithMargins = True
+        OnClick = btnsaveClick
+      end
+    end
+    object grp5: TGroupBox
+      Align = alClient
+      Caption = 'C Translated'
+      TabOrder = 1
+      Left = 326
+      Top = 0
+      Width = 313
+      Height = 321
+      object txtDst: TMemo
+        Align = alClient
+        Font.Charset = ARABIC_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -12
+        Font.Name = 'Courier New'
+        Font.Style = []
+        ParentFont = False
+        ReadOnly = True
+        ScrollBars = ssBoth
+        TabOrder = 0
+        Left = 2
+        Top = 15
+        Width = 309
+        Height = 304
+      end
+    end
+    object grp3: TPanel
+      Align = alRight
+      BevelOuter = bvNone
+      TabOrder = 2
+      Left = 639
+      Top = 0
+      Width = 80
+      Height = 321
+      object grp6: TGroupBox
+        Align = alClient
+        Caption = 'Data Types'
+        TabOrder = 0
+        Left = 0
+        Top = 145
+        Width = 80
+        Height = 176
+        object gridTypes: TStringGrid
+          Align = alClient
+          ColCount = 1
+          FixedCols = 0
+          RowCount = 1
+          FixedRows = 0
+          ScrollBars = ssVertical
+          TabOrder = 0
+          Left = 2
+          Top = 15
+          Width = 76
+          Height = 159
+          Tag = ''
+          ColWidths = (
+            64)
+        end
+      end
+      object grp7: TGroupBox
+        Align = alTop
+        Caption = 'Action'
+        TabOrder = 1
+        Left = 0
+        Top = 0
+        Width = 80
+        Height = 145
+        object btnCnv: TButton
+          Left = 2
+          Top = 79
+          Width = 76
+          Height = 32
+          Caption = '3- Translate'
+          TabOrder = 2
+          Align = alTop
+          Enabled = False
+          OnClick = btnCnvClick
+        end
+        object btnGo: TButton
+          Left = 2
+          Top = 47
+          Width = 76
+          Height = 32
+          Caption = '2-  Parse'
+          TabOrder = 1
+          Align = alTop
+          Enabled = False
+          OnClick = btnGoClick
+        end
+        object btnPre: TButton
+          Left = 2
+          Top = 15
+          Width = 76
+          Height = 32
+          Caption = '1- Pre Proc'
+          TabOrder = 0
+          Align = alTop
+          OnClick = btnPreClick
+        end
+        object btnHlp: TButton
+          Left = 2
+          Top = 111
+          Width = 76
+          Height = 32
+          Caption = 'Help'
+          TabOrder = 3
+          Align = alTop
+          OnClick = btnHlpClick
+        end
+      end
+    end
+  end
+  object Panel2: TPanel
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 3
+    Left = 0
+    Top = 326
+    Width = 719
+    Height = 222
+    object Splitter1: TSplitter
+      Beveled = True
+      ResizeStyle = rsUpdate
+      Width = 5
+      Left = 134
+      Top = 0
+      Height = 222
+      ExplicitLeft = 344
+      ExplicitTop = -1
+      ExplicitHeight = 321
+    end
+    object grp1: TGroupBox
+      Align = alClient
+      Caption = 'Symbol Table'
+      TabOrder = 0
+      Left = 139
+      Top = 0
+      Width = 580
+      Height = 222
+      object gridVars: TStringGrid
+        Align = alClient
+        ColCount = 7
+        FixedCols = 0
+        RowCount = 2
+        TabOrder = 0
+        Left = 2
+        Top = 15
+        Width = 576
+        Height = 205
+        Tag = ''
+        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goRowSizing, goColSizing]
+        OnDrawCell = gridVarsDrawCell
+        ColWidths = (
+          111
+          58
+          102
+          76
+          76
+          71
+          49)
+      end
+    end
+    object grp4: TGroupBox
+      Align = alLeft
+      Caption = 'Pre Process'
+      TabOrder = 1
+      Left = 0
+      Top = 0
+      Width = 134
+      Height = 222
+      object txtPre: TMemo
+        Align = alClient
+        ReadOnly = True
+        ScrollBars = ssBoth
+        TabOrder = 0
+        Left = 2
+        Top = 15
+        Width = 130
+        Height = 205
+      end
+    end
+  end
+  object ev: TApplicationEvents
+    OnException = evException
+    Left = 136
+    Top = 440
+  end
+  object dlgopen: TOpenDialog
+    Options = [ofOverwritePrompt, ofHideReadOnly, ofEnableSizing]
+    Title = 'Load From'
+    Left = 200
+    Top = 440
+  end
+  object dlgsave: TSaveDialog
+    Options = [ofOverwritePrompt, ofHideReadOnly, ofEnableSizing]
+    Title = 'Save As'
+    Left = 168
+    Top = 440
+  end
+end
